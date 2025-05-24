@@ -1,0 +1,314 @@
+[
+    {
+      "name": "get_selected_text",
+      "description": "Get the user's selected text from the active tab.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_secret_word",
+      "description": "Get the secret word.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "get_browser_state",
+      "description": "Grab the current browser state (Active tab, open tabs, etc.)",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "store_memory",
+      "description": "Stores the provided text content as a memory, with optional tags and URL.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "default": null
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": null
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "retrieve_from_memory",
+      "description": "Retrieve memories based on a query, time range, and similarity.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "start_time_iso": {
+            "type": "string",
+            "title": "Start Time Iso",
+            "default": null
+          },
+          "end_time_iso": {
+            "type": "string",
+            "title": "End Time Iso",
+            "default": null
+          },
+          "n_results": {
+            "type": "integer",
+            "title": "N Results",
+            "default": 5
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_tabs",
+      "description": "Get all open browser tabs.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "screenshot",
+      "description": "Take a screenshot of the active tab.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "navigate",
+      "description": "Navigate to a URL in active tab or specified tab.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "name": "navigate_tab",
+      "description": "Navigate to a URL in a specific tab.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id"
+          }
+        },
+        "required": [
+          "url",
+          "tab_id"
+        ]
+      }
+    },
+    {
+      "name": "select_tab",
+      "description": "Switch to a specific browser tab by ID.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id"
+          }
+        },
+        "required": [
+          "tab_id"
+        ]
+      }
+    },
+    {
+      "name": "new_tab",
+      "description": "Create a new browser tab, optionally with a specific URL.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "default": null
+          }
+        }
+      }
+    },
+    {
+      "name": "close_tab",
+      "description": "Close a browser tab by ID, or close the active tab if no ID specified.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        }
+      }
+    },
+    {
+      "name": "search_google",
+      "description": "Perform a Google search in active tab or specified tab.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "click_element",
+      "description": "Click on a DOM element by its ID.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "element_id": {
+            "type": "string",
+            "title": "Element Id"
+          },
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        },
+        "required": [
+          "element_id"
+        ]
+      }
+    },
+    {
+      "name": "input_text",
+      "description": "Type text into a DOM element by its ID.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "element_id": {
+            "type": "string",
+            "title": "Element Id"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        },
+        "required": [
+          "element_id",
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "send_keys",
+      "description": "Send keyboard shortcuts or key combinations to the page.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "string",
+            "title": "Keys"
+          },
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        },
+        "required": [
+          "keys"
+        ]
+      }
+    },
+    {
+      "name": "grab_dom",
+      "description": "Get formatted DOM structure with XPath mappings for elements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        }
+      }
+    },
+    {
+      "name": "capture_with_highlights",
+      "description": "Take a screenshot with element highlights for better AI understanding.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tab_id": {
+            "type": "integer",
+            "title": "Tab Id",
+            "default": null
+          }
+        }
+      }
+    },
+    {
+      "name": "get_current_datetime",
+      "description": "Gets the current date and time in UTC, formatted as an ISO 8601 string.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]

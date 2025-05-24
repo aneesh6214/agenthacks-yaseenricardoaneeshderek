@@ -1,0 +1,8 @@
+fastmcp>=0.1.0
+websockets>=12.0
+mcp>=1.0.0
+faiss-cpu
+sentence-transformers
+numpy
+openai
+python-dotenv
